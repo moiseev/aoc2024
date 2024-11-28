@@ -1,0 +1,13 @@
+{application, dagedda, [
+    {description, "Advent of Code data getter"},
+    {vsn, "0.1.0"},
+    {registered, []},
+    {mod, {dagedda_app, []}},
+    {applications, [
+        kernel,
+        stdlib
+    ]},
+    {env, []},
+    {modules, []},
+    {links, []}
+ ]}.
