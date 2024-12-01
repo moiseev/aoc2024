@@ -5,6 +5,8 @@
     {mod, {dagedda_app, []}},
     {applications, [
         kernel,
+        ssl,
+        inets,
         stdlib
     ]},
     {env, []},

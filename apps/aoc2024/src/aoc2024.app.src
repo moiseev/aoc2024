@@ -4,6 +4,7 @@
     {registered, []},
     {mod, {aoc2024_app, []}},
     {applications, [
+        dagedda,
         kernel,
         stdlib
     ]},
