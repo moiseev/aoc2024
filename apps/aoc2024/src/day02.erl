@@ -2,8 +2,10 @@
 
 -export([part_1/0, part_2/0]).
 
+-define(DAY, 2).
+
 part_1() ->
-    {ok, Data} = dagedda:get(2024, 2, #{cache_dir => code:priv_dir(aoc2024)}),
+    {ok, Data} = aoclib:get_data(?DAY),
     Lines = aoclib:lines(Data),
     lists:foldl(
         fun(Line, Acc) ->
@@ -18,7 +20,7 @@ part_1() ->
     ).
 
 part_2() ->
-    {ok, Data} = dagedda:get(2024, 2, #{cache_dir => code:priv_dir(aoc2024)}),
+    {ok, Data} = aoclib:get_data(?DAY),
     Lines = aoclib:lines(Data),
     lists:foldl(
         fun(Line, Acc) ->

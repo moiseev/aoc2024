@@ -2,6 +2,11 @@
 
 -compile(export_all).
 
+-define(YEAR, 2024).
+
+get_data(Day) ->
+    dagedda:get(?YEAR, Day, #{cache_dir => code:priv_dir(aoc2024)}).
+
 lines(Bin) ->
     binary:split(Bin, <<"\n">>, [global, trim_all]).
 
