@@ -8,10 +8,13 @@ get_data(Day) ->
     dagedda:get(?YEAR, Day, #{cache_dir => code:priv_dir(aoc2024)}).
 
 lines(Bin) ->
-    binary:split(Bin, <<"\n">>, [global, trim_all]).
+    split_by(Bin, <<"\n">>).
 
 words(Bin) ->
-    binary:split(Bin, <<" ">>, [global, trim_all]).
+    split_by(Bin, <<" ">>).
+
+split_by(Bin, Sep) ->
+    binary:split(Bin, Sep, [global, trim_all]).
 
 numbers(Bin) ->
     [binary_to_integer(B) || B <- words(Bin)].
@@ -70,3 +73,8 @@ rev_index(Grid) when is_map(Grid) ->
     KeyFun = fun({_K, V}) -> V end,
     ValueFun = fun({K, _V}) -> K end,
     maps:groups_from_list(KeyFun, ValueFun, maps:to_list(Grid)).
+
+combinations(_, 0) ->
+    [[]];
+combinations(Xs, Len) ->
+    [[H | T] || H <- Xs, T <- combinations(Xs, Len - 1)].
